@@ -2,7 +2,7 @@ const baseUrl = "https://myevent.tbg.cm";
 const appName = "MyEvent";
 const welcome = "Bienvenue";
 const to = "Sur";
-const loginFailed = "Echec de Connexion";
+const loginFailed = "Echec de Connexion!!!";
 const loggin = "Connexion...";
 const registering = "Création du compte...";
 const registerFailed = "Echec de création de compte";
@@ -15,7 +15,8 @@ const matricule = "Matricule";
 const password = "Mot de Passe";
 const cpassword = "Confirmer le Mot de Passe";
 const connexion = "Connexion";
-const noAccount = "Pas encore de Compte ?";
+const noAccount = "Pas encore de Compte?  ";
+const alreadyAccount = "Déja un Compte?  ";
 const createAccount = "Creer un compte";
 const passError = "Mots de passes differents";
 const username = "Nom d'utilisateur";
@@ -30,12 +31,16 @@ const String REGULAR = "Regular";
 const String BOLD = "Bold";
 const String SKIP = "Passer";
 const String NEXT = "Suivant";
-const String SLIDER_HEADING_1 = "Connectez-Vous";
-const String SLIDER_HEADING_2 = "Votre école entre vos mains";
+const String GO = "Allez-y";
+const String SLIDER_HEADING_1 = "Vos Evenements près de vous";
+const String SLIDER_HEADING_2 = "Gerer vos évènements";
 const String SLIDER_HEADING_3 = "Système de notifications";
+const String SLIDER_HEADING_4 = "Lancez vous";
 const String SLIDER_DESC_1 =
-    "Connectez vous et accedez tous les differents services que vous propose Sjdacademics";
+    "Retrouvez tous les évènements autour de vous sur une seule platforme et visualiser toutes ses informations";
 const String SLIDER_DESC_2 =
-    "Consultez à tout moment votre compte et restez informés en temps réel et n'importe ou sur votre situation comptable";
+    "Creez et gérez vos évènements dans une seule application et de façon très simple";
 const String SLIDER_DESC_3 =
-    "Recevez des notifications apres chaque changement de votre situation comptable";
+    "Recevez des notifications chaque fois qu'un évènement est ajouté dans votre ville et restez toujours informé";
+const String SLIDER_DESC_4 =
+    "Profitez dès à présent de toute la puissance de MyEvent pour la gestion de vos évènements";

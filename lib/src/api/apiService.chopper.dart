@@ -57,14 +57,6 @@ class _$ApiService extends ApiService {
   }
 
   @override
-  Future<Response<dynamic>> user(String token) {
-    final $url = 'https://myevent.tbg.cm/api/getuserbyid';
-    final $headers = {'Authorization': token, 'Accept': 'application/json'};
-    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<Response<dynamic>> updateuser(
       String token, Map<String, dynamic> body) {
     final $url = 'https://myevent.tbg.cm/api/updateuser';
@@ -76,12 +68,10 @@ class _$ApiService extends ApiService {
   }
 
   @override
-  Future<Response<dynamic>> getuser(String token, Map<String, dynamic> body) {
+  Future<Response<dynamic>> getuser(String token) {
     final $url = 'https://myevent.tbg.cm/api/getuser';
     final $headers = {'Authorization': token, 'Accept': 'application/json'};
-    final $body = body;
-    final $request =
-        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
