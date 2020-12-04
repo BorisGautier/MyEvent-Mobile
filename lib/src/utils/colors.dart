@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 Color scaffoldBgColor = Color(0xFFF4F4F4);
-Color primaryColor = Color(0xff8e5913);
-Color darkPrimaryColor = Color(0xff643c0c);
-Color accentPrimaryColor = Color(0xffdf8f21);
+const Color primaryColor = Color(0xffdf8f21);
+const Color darkPrimaryColor = Color(0xff643c0c);
+Color accentPrimaryColor = Color(0xff8e5913);
 Color greyColor = Colors.grey;
 Color whiteColor = Colors.white;
 Color blackColor = Colors.black;
@@ -18,7 +18,7 @@ const green = Colors.green;
 const shadow_color = Color(0x95E9EBF0);
 const t3_app_background = Color(0xFFf8f8f8);
 const t5LayoutBackgroundWhite = Color(0xFFF6F7FA);
-const t5ShadowColor = Color(0x95E9EBF0);
+const shadowColor = Color(0x95E9EBF0);
 
 const t5Cat1 = Color(0xFF45c7db);
 const t5Cat2 = Color(0xFF510AD7);
