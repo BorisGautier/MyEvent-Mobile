@@ -4,7 +4,6 @@ import 'package:myevent/src/bloc/auth/auth_bloc.dart';
 import 'package:myevent/src/bloc/login/login_bloc.dart';
 import 'package:myevent/src/bloc/register/register_bloc.dart';
 import 'package:myevent/src/di/di.dart';
-import 'package:myevent/src/repositories/user/userRepository.dart';
 import 'package:myevent/src/splash.dart';
 import 'package:myevent/src/utils/colors.dart';
 import 'package:myevent/src/views/auth/auth.dart';

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myevent/src/bloc/login/login_bloc.dart';
-import 'package:myevent/src/bloc/register/register_bloc.dart';
 import 'package:myevent/src/di/di.dart';
 import 'package:myevent/src/repositories/user/userRepository.dart';
 import 'package:myevent/src/utils/colors.dart';
