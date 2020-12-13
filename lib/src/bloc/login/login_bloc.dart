@@ -9,7 +9,6 @@ import 'package:myevent/src/repositories/user/userRepository.dart';
 import 'package:myevent/src/utils/result.dart';
 import 'package:myevent/src/utils/validator.dart';
 import 'package:rxdart/rxdart.dart';
-//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:twitter_login/twitter_login.dart';
 
@@ -98,8 +97,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     String email,
   }) async* {
     try {
-      final token = await sharedPreferencesHelper.getToken();
-      await userRepository.forgotpassword(token, email);
+      await userRepository.forgotpassword(email);
       yield LoginState.send();
     } catch (_) {
       yield LoginState.failSend();
@@ -118,6 +116,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       switch (result.status) {
         case FacebookLoginStatus.Success:
+          print(result.accessToken.token);
           Result<UserResponse> user =
               await userRepository.resgisterFacebook(result.accessToken.token);
           if (user.success.success) {

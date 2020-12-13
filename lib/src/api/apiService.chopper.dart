@@ -76,10 +76,9 @@ class _$ApiService extends ApiService {
   }
 
   @override
-  Future<Response<dynamic>> forgetPassword(
-      String token, Map<String, dynamic> body) {
-    final $url = 'https://myevent.tbg.cm/api/getuser/password/email';
-    final $headers = {'Authorization': token, 'Accept': 'application/json'};
+  Future<Response<dynamic>> forgetPassword(Map<String, dynamic> body) {
+    final $url = 'https://myevent.tbg.cm/api/password/email';
+    final $headers = {'Accept': 'application/json'};
     final $body = body;
     final $request =
         Request('POST', $url, client.baseUrl, body: $body, headers: $headers);

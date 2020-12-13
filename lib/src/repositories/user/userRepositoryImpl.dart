@@ -24,12 +24,11 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Result<ResponseApi>> forgotpassword(String token, String email) async {
+  Future<Result<ResponseApi>> forgotpassword(String email) async {
     bool isConnected = await networkInfo.isConnected();
     if (isConnected) {
       try {
-        final Response response =
-            await userApiService.forgotPassword(token, email);
+        final Response response = await userApiService.forgotPassword(email);
 
         var model = ResponseApi.fromJson(response.body);
 

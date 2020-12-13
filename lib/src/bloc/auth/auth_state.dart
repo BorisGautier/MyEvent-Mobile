@@ -25,3 +25,35 @@ class AuthSuccess extends AuthState {
 class AuthFirstOpen extends AuthState {}
 
 class AuthFailure extends AuthState {}
+
+class AuthLoginState extends AuthState {
+  final UserRepository userRepository;
+
+  const AuthLoginState({
+    @required this.userRepository,
+  });
+
+  @override
+  List<Object> get props => [userRepository];
+
+  @override
+  String toString() {
+    return 'AuthLoginState { userRepository: $userRepository }';
+  }
+}
+
+class AuthRegisterState extends AuthState {
+  final UserRepository userRepository;
+
+  const AuthRegisterState({
+    @required this.userRepository,
+  });
+
+  @override
+  List<Object> get props => [userRepository];
+
+  @override
+  String toString() {
+    return 'AuthRegister { userRepository: $userRepository }';
+  }
+}

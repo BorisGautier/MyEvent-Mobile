@@ -29,16 +29,17 @@ dependencies:
   equatable: ^1.2.5
   flutter_bloc: ^6.1.1
   flutter_facebook_login: ^3.0.0
+  flutter_login_facebook: ^0.4.0+1
   flutter_spinkit: ^4.1.2+1
   flutter_statusbarcolor: ^0.2.3
   flutter_svg: ^0.19.1
+  fluttertoast: ^7.1.5
   font_awesome_flutter: ^8.10.0
   get_it: ^5.0.1
   hydrated_bloc: ^6.1.0
   meta: ^1.2.3
   rxdart: ^0.24.1
   shared_preferences: ^0.5.12+4
-  flutter_login_facebook: ^0.4.0+1
   twitter_login: ^2.1.1
 
 dev_dependencies:

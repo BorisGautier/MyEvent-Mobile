@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myevent/src/bloc/auth/auth_bloc.dart';
 import 'package:myevent/src/bloc/login/login_bloc.dart';
 import 'package:myevent/src/bloc/register/register_bloc.dart';
@@ -61,6 +62,7 @@ class _BodyState extends State<Body> {
                   children: [Text(loginFailed), Icon(Icons.error)],
                 ),
                 backgroundColor: red,
+                duration: Duration(seconds: 7),
               ),
             );
         }
@@ -89,6 +91,7 @@ class _BodyState extends State<Body> {
                   children: [Text(emailSend), Icon(Icons.check_circle)],
                 ),
                 backgroundColor: green,
+                duration: Duration(seconds: 7),
               ),
             );
         }
@@ -106,7 +109,20 @@ class _BodyState extends State<Body> {
             );
         }
         if (state.isSuccess) {
+          Scaffold.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text(loginSuccess), Icon(Icons.check_circle)],
+                ),
+                backgroundColor: green,
+                duration: Duration(seconds: 7),
+              ),
+            );
           BlocProvider.of<AuthBloc>(context).add(AuthLoggedIn());
+          Navigator.of(context).pop();
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(
@@ -140,6 +156,23 @@ class _BodyState extends State<Body> {
                   text: connexion,
                   press: _onFormSubmitted,
                   enable: isLoginButtonEnabled(state),
+                ),
+                SizedBox(height: size.height * 0.03),
+                GestureDetector(
+                  onTap: () async {
+                    _emailController.text.isNotEmpty
+                        ? _reset(_emailController.text)
+                        : Fluttertoast.showToast(
+                            msg: "Remplissez l'adresse mail",
+                            backgroundColor: red);
+                  },
+                  child: Text(
+                    forgotPass,
+                    style: TextStyle(
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
                 SizedBox(height: size.height * 0.03),
                 AlreadyHaveAnAccountCheck(
@@ -223,9 +256,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  /* void _reset(String mail) {
+  void _reset(String mail) {
     _loginBloc.add(
       PasswordReset(email: mail),
     );
-  }*/
+  }
 }

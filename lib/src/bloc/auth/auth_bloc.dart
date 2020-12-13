@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:myevent/sharedPreference.dart';
 import 'package:myevent/src/repositories/user/userRepository.dart';
 
@@ -27,6 +28,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield* _mapAuthFirstOpenState();
     } else if (event is AuthLoggedOut) {
       yield* _mapAuthLoggedOutToState();
+    } else if (event is AuthLogin) {
+      yield* _mapAuthLoginToState();
+    } else if (event is AuthRegister) {
+      yield* _mapAuthRegisterToState();
     }
   }
 
@@ -69,5 +74,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     userRepository.logout(token);
     await sharedPreferencesHelper.deleteToken();
     yield AuthFailure();
+  }
+
+  Stream<AuthState> _mapAuthLoginToState() async* {
+    yield AuthLoginState(userRepository: userRepository);
+  }
+
+  Stream<AuthState> _mapAuthRegisterToState() async* {
+    yield AuthRegisterState(userRepository: userRepository);
   }
 }

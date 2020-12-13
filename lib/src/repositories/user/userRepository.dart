@@ -23,7 +23,7 @@ abstract class UserRepository {
 
   Future<Result<UserResponse>> getuser(String token);
 
-  Future<Result<ResponseApi>> forgotpassword(String token, String email);
+  Future<Result<ResponseApi>> forgotpassword(String email);
 
   Future<bool> deleteToken();
 

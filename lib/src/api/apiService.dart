@@ -26,11 +26,8 @@ abstract class ApiService extends ChopperService {
   @Get(path: '/api/getuser', headers: {'Accept': 'application/json'})
   Future<Response> getuser(@Header('Authorization') String token);
 
-  @Post(
-      path: '/api/getuser/password/email',
-      headers: {'Accept': 'application/json'})
-  Future<Response> forgetPassword(
-      @Header('Authorization') String token, @Body() Map<String, dynamic> body);
+  @Post(path: '/api/password/email', headers: {'Accept': 'application/json'})
+  Future<Response> forgetPassword(@Body() Map<String, dynamic> body);
 
   @Get(path: '/api/logout', headers: {'Accept': 'application/json'})
   Future<Response> logout(@Header('Authorization') String token);

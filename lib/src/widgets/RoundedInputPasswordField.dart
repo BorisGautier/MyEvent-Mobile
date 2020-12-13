@@ -4,7 +4,7 @@ import 'package:myevent/src/utils/colors.dart';
 import 'package:myevent/src/utils/strings.dart';
 import 'package:myevent/src/widgets/textFieldContainer.dart';
 
-class RoundedInputPasswordField extends StatelessWidget {
+class RoundedInputPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final TextEditingController controller;
   final RegisterState registerState;
@@ -16,18 +16,25 @@ class RoundedInputPasswordField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _RoundedInputPasswordFieldState createState() =>
+      _RoundedInputPasswordFieldState();
+}
+
+class _RoundedInputPasswordFieldState extends State<RoundedInputPasswordField> {
+  @override
   Widget build(BuildContext context) {
+    bool obscureText = true;
     return TextFieldContainer(
       child: TextFormField(
-        controller: controller,
+        controller: widget.controller,
         autovalidateMode: AutovalidateMode.always,
         autocorrect: false,
         validator: (_) {
-          return !registerState.isPasswordValid ? invalidPass : null;
+          return !widget.registerState.isPasswordValid ? invalidPass : null;
         },
         style: TextStyle(fontSize: 15.0, fontFamily: REGULAR),
-        obscureText: true,
-        onChanged: onChanged,
+        obscureText: obscureText,
+        onChanged: widget.onChanged,
         cursorColor: primaryColor,
         decoration: InputDecoration(
           hintText: password,
@@ -35,8 +42,13 @@ class RoundedInputPasswordField extends StatelessWidget {
             Icons.lock,
             color: primaryColor,
           ),
-          suffixIcon: Icon(
-            Icons.visibility,
+          suffixIcon: IconButton(
+            icon: Icon(Icons.visibility),
+            onPressed: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
             color: primaryColor,
           ),
           border: InputBorder.none,

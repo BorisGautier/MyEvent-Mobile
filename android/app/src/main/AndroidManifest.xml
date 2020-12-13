@@ -65,7 +65,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Accepts URIs that begin with "example://gizmos” -->
                 <!-- Registered Callback URLs in TwitterApp -->
-                <data android:scheme="https" /> <!-- host is option -->
+                <data android:scheme="https" android:host="myevent.tbg.cm" /> <!-- host is option -->
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

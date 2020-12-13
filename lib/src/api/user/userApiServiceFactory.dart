@@ -47,12 +47,11 @@ class UserApiServiceFactory implements UserApiService {
   }
 
   @override
-  Future<Response> forgotPassword(String token, String email) async {
+  Future<Response> forgotPassword(String email) async {
     Response response;
 
     try {
-      response =
-          await apiService.forgetPassword('Bearer ' + token, {"email": email});
+      response = await apiService.forgetPassword({"email": email});
     } catch (e) {
       print('Caught ${e.body}');
       rethrow;

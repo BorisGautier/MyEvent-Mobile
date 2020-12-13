@@ -83,6 +83,7 @@ class _BodyState extends State<Body> {
                   ],
                 ),
                 backgroundColor: red,
+                duration: Duration(seconds: 7),
               ),
             );
         }

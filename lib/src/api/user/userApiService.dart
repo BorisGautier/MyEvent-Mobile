@@ -13,7 +13,7 @@ abstract class UserApiService {
 
   Future<Response> getUser(String token);
 
-  Future<Response> forgotPassword(String token, String email);
+  Future<Response> forgotPassword(String email);
 
   Future<Response> updateUser(String token,
       {String name,

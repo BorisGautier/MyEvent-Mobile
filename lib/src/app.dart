@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevent/src/bloc/auth/auth_bloc.dart';
-import 'package:myevent/src/bloc/login/login_bloc.dart';
-import 'package:myevent/src/bloc/register/register_bloc.dart';
 import 'package:myevent/src/di/di.dart';
 import 'package:myevent/src/splash.dart';
 import 'package:myevent/src/utils/colors.dart';
 import 'package:myevent/src/views/auth/authScreen.dart';
 import 'package:myevent/src/views/home/home.dart';
 import 'package:myevent/src/views/lading/ladingPage.dart';
+import 'package:myevent/src/views/login/loginScreen.dart';
+import 'package:myevent/src/views/register/registerScreen.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
+        '/auth': (context) => AuthScreen(),
+      },
       theme: ThemeData(
         primaryColor: primaryColor,
         primarySwatch: Colors.orange,
@@ -34,14 +39,10 @@ class MyApp extends StatelessWidget {
             return LadingPage();
           }
           if (state is AuthFailure) {
-            return MultiBlocProvider(providers: [
-              BlocProvider(
-                create: (context) => getIt<LoginBloc>(),
-              ),
-              BlocProvider(
-                create: (context) => getIt<RegisterBloc>(),
-              ),
-            ], child: AuthScreen());
+            return BlocProvider<AuthBloc>(
+              create: (context) => getIt<AuthBloc>(),
+              child: AuthScreen(),
+            );
 
             // return AuthScreen();
           }
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
 
             return Home(name: state.name);
           }
+
           return SplashScreen();
         },
       ),
