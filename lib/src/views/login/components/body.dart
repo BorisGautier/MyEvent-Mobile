@@ -223,9 +223,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  void _reset(String mail) {
+  /* void _reset(String mail) {
     _loginBloc.add(
       PasswordReset(email: mail),
     );
-  }
+  }*/
 }
