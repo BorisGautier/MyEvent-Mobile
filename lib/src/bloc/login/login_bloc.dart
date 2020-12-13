@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:myevent/sharedPreference.dart';
 import 'package:myevent/src/models/userResponse.dart';
 import 'package:myevent/src/repositories/user/userRepository.dart';
@@ -12,6 +11,7 @@ import 'package:myevent/src/utils/validator.dart';
 import 'package:rxdart/rxdart.dart';
 //import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+import 'package:twitter_login/twitter_login.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -144,19 +144,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> _mapLoginWithTwitterPressedToState() async* {
     try {
       var twitterLogin = new TwitterLogin(
-        consumerKey: 'w0wyqIHlGG3MsgFPalc2TG2aS',
-        consumerSecret: 'XdrpBLE1a1rNeU29G0ljSHbZUA1RiqLrDkyW8rIl0l3K4q6Zkv',
+        apiKey: 'w0wyqIHlGG3MsgFPalc2TG2aS',
+        apiSecretKey: 'XdrpBLE1a1rNeU29G0ljSHbZUA1RiqLrDkyW8rIl0l3K4q6Zkv',
+        redirectURI: 'https://myevent.tbg.cm/callback/twitter',
       );
 
-      final TwitterLoginResult result = await twitterLogin.authorize();
+      final result = await twitterLogin.login();
 
       switch (result.status) {
         case TwitterLoginStatus.loggedIn:
-          var session = result.session;
-          print(session.token);
-          print(session.secret);
+          var session = result;
+          print(session.authToken);
+          print(session.authTokenSecret);
           Result<UserResponse> user = await userRepository.resgisterTwitter(
-              session.token, session.secret);
+              session.authToken, session.authTokenSecret);
           if (user.success.success) {
             await sharedPreferencesHelper.setToken(user.success.data.token);
             yield LoginState.success();
