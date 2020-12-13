@@ -6,7 +6,7 @@ import 'package:myevent/src/bloc/register/register_bloc.dart';
 import 'package:myevent/src/di/di.dart';
 import 'package:myevent/src/splash.dart';
 import 'package:myevent/src/utils/colors.dart';
-import 'package:myevent/src/views/auth/auth.dart';
+import 'package:myevent/src/views/auth/authScreen.dart';
 import 'package:myevent/src/views/home/home.dart';
 import 'package:myevent/src/views/lading/ladingPage.dart';
 
