@@ -7,6 +7,7 @@ import 'package:myevent/src/api/user/userApiServiceFactory.dart';
 import 'package:myevent/src/bloc/auth/auth_bloc.dart';
 import 'package:myevent/src/bloc/login/login_bloc.dart';
 import 'package:myevent/src/bloc/register/register_bloc.dart';
+import 'package:myevent/src/bloc/tab/tab_bloc.dart';
 import 'package:myevent/src/repositories/user/userRepository.dart';
 import 'package:myevent/src/repositories/user/userRepositoryImpl.dart';
 import 'package:myevent/src/utils/networkInfo.dart';
@@ -55,4 +56,5 @@ Future<void> init() async {
         userRepository: getIt(),
         sharedPreferencesHelper: getIt(),
       ));
+  getIt.registerFactory<TabBloc>(() => TabBloc());
 }

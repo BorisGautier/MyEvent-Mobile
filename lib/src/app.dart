@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevent/src/bloc/auth/auth_bloc.dart';
+import 'package:myevent/src/bloc/tab/tab_bloc.dart';
 import 'package:myevent/src/di/di.dart';
 import 'package:myevent/src/splash.dart';
 import 'package:myevent/src/utils/colors.dart';
@@ -47,12 +48,10 @@ class MyApp extends StatelessWidget {
             // return AuthScreen();
           }
           if (state is AuthSuccess) {
-            /* return BlocProvider(
+            return BlocProvider(
               create: (context) => getIt<TabBloc>(),
               child: HomePage(),
-            );*/
-
-            return Home(name: state.name);
+            );
           }
 
           return SplashScreen();
