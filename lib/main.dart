@@ -14,6 +14,8 @@ void main() async {
 
   // runApp(MyApp());
 
+  //méthode pour lancer mon application
+
   runApp(BlocProvider(
       create: (_) => di.getIt<AuthBloc>()..add(AuthStarted()), child: MyApp()));
 }
