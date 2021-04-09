@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        cursorColor: primaryColor,
+        textSelectionTheme: TextSelectionThemeData(cursorColor: primaryColor),
         tabBarTheme: TabBarTheme(
           labelColor: Colors.grey[300],
           unselectedLabelColor: whiteColor,

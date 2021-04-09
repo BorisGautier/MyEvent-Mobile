@@ -53,7 +53,7 @@ class _BodyState extends State<Body> {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.isFailure) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
@@ -67,7 +67,7 @@ class _BodyState extends State<Body> {
             );
         }
         if (state.isSubmitting) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
@@ -82,7 +82,7 @@ class _BodyState extends State<Body> {
             );
         }
         if (state.isSend) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
@@ -96,7 +96,7 @@ class _BodyState extends State<Body> {
             );
         }
         if (state.isFailSend) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
@@ -109,7 +109,7 @@ class _BodyState extends State<Body> {
             );
         }
         if (state.isSuccess) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
